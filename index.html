@@ -8,7 +8,10 @@
     <title>Vacation 30A - Santa Rosa Beach, FL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Your existing CSS goes here */
+        /* Original CSS remains unchanged */
+        body {
+            font-family: Arial, sans-serif; /* Fallback font added */
+        }
     </style>
 </head>
 <body>
@@ -28,11 +31,10 @@
         let formWindow;
 
         function toggleFormPopup() {
-            // Check if the form window is already open and not closed
+            // Ensure the function opens or reopens the popup window
             if (formWindow && !formWindow.closed) {
                 formWindow.focus(); // Bring the existing window into focus
             } else {
-                // Open a new window if none exists or if it was closed
                 formWindow = window.open(
                     "https://docs.google.com/forms/d/e/1FAIpQLSdKELiSHNu1MGxzGKqZYZfZzZAV7jjXTAwcBQz0T27F_se8eQ/viewform",
                     "FormPopup",
