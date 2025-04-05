@@ -6,72 +6,40 @@
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="vacation, 30A, Santa Rosa Beach, vacation rental, beach retreat">
     <title>Vacation 30A - Santa Rosa Beach, FL</title>
-    <meta name="description" content="Discover the perfect vacation at Santa Rosa Beach with our top-rated 30A rental. Book your dream getaway today!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #2c3e50; }
-        p { color: #34495e; }
-        a { color: #2980b9; text-decoration: none; }
-        img { max-width: 100%; height: auto; margin-top: 20px; }
-        ul { display: inline-block; text-align: left; }
-        li { margin-bottom: 10px; }
-        .cta-button {
-            background-color: #f39c12;
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #e67e22;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-        .cta-icon {
-            margin-right: 10px;
-        }
+        /* Your existing CSS goes here */
     </style>
 </head>
 <body>
     <h1>Welcome to Vacation-30A - Family-Friendly Beach Rental in Santa Rosa Beach, FL</h1>
     <p>Your perfect beach retreat at Santa Rosa Beach, FL. Minutes away from the sugary white sands of Florida's Emerald Coast located on the peaceful west end of Highway 30A.</p>
     <section>
-        <h2>Our Amenities - Perfect for Family Vacations</h2>
-        <ul>
-            <li>Located on Highway 30A on the Peaceful West End</li>
-            <li>Two Bedrooms and Two Bathrooms</li>
-            <li>Back Patio Facing the Preserve</li>
-            <li>Steps Away from the Pool</li>
-            <li>Free Wifi</li>
-            <li>Smart TVs in Each Bedroom and Living Room</li>
-            <li>Minutes from Topsail Preserve State Park</li>
-            <li>Modern Kitchen with Extra Amenities</li>
-        </ul>
-    </section>
-    <section>
         <h2>Contact Us</h2>
         <p>Email us at: <a href="mailto:5tidesfl@gmail.com">contact@vacation-30a.com</a></p>
-        <a href="your-link-here" class="cta-button">Contact Us Now</a>
-    </section>
-    <section>
-        <h2>Featured Images</h2>
-        <img src="web_412 Topsail Village  _30.jpg" alt="Family-Friendly Topsail Village Pool Area">
-        <img src="web_412 Topsail Village  _31.jpg" alt="Topsail Village 30A and Santa Rosa Beach">
-        <img src="web_412 Topsail Village  _32.jpg" alt="Drone View of Topsail Village Pool and Neighborhood">
-        <img src="web_412 Topsail Village  _33.jpg" alt="Drone View of 30A and Gulf of America">
-        <img src="web_412 Topsail Village  _34.jpg" alt="Drone View of 30A and Emerald Coast">
-        <h2>More Information About Vacation-30A (please fill out our form)</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd6xqATwH8-ZKf9176wsEocRiq504atIWmAFRiSTrABRurcMA/viewform?embedded=true" width="640" height="1394" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        <p>Visit our main website: <a href="https://5tidesfl.com" target="_blank">5Tides at Topsail</a></p>
+        <!-- Button to open or reopen the form -->
+        <button onclick="toggleFormPopup()">Open Contact Form</button>
     </section>
     <footer>
         <p>&copy; 2025 Vacation-30A. All Rights Reserved.</p>
-    </footer>        
+    </footer>
+
+    <script>
+        let formWindow;
+
+        function toggleFormPopup() {
+            // Check if the form window is already open and not closed
+            if (formWindow && !formWindow.closed) {
+                formWindow.focus(); // Bring the existing window into focus
+            } else {
+                // Open a new window if none exists or if it was closed
+                formWindow = window.open(
+                    "https://docs.google.com/forms/d/e/1FAIpQLSdKELiSHNu1MGxzGKqZYZfZzZAV7jjXTAwcBQz0T27F_se8eQ/viewform",
+                    "FormPopup",
+                    "width=800,height=600,resizable=yes"
+                );
+            }
+        }
+    </script>
 </body>
 </html>
