@@ -4,29 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="vacation, 30A, Santa Rosa Beach, vacation rental, beach retreat">
+    <meta name="keywords" content="vacation, 30A, Santa Rosa Beach, vacation rental, blog subscription, feedback">
     <title>Vacation 30A - Santa Rosa Beach, FL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif; /* Fallback font added */
         }
-        .cta-button {
-            background-color: #f39c12;
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, box-shadow 0.3s;
+        iframe {
+            border: none;
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
         }
-        .cta-button:hover {
-            background-color: #e67e22;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .popup iframe {
+            width: 100%;
+            height: 300px;
+        }
+        .popup-close {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #f39c12;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup-close:hover {
+            background: #e67e22;
         }
     </style>
 </head>
@@ -36,28 +62,51 @@
     <section>
         <h2>Contact Us</h2>
         <p>Email us at: <a href="mailto:5tidesfl@gmail.com">contact@vacation-30a.com</a></p>
-        <!-- Button to open or reopen the form -->
-        <button onclick="toggleFormPopup()">Open Feedback Form</button>
+        
+        <!-- Embedded Form -->
+        <h3>Feedback Form</h3>
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdKELiSHNu1MGxzGKqZYZfZzZAV7jjXTAwcBQz0T27F_se8eQ/viewform?embedded=true"
+            title="Feedback Form">
+        </iframe>
+        
+        <!-- Button to Reopen the Popup -->
+        <button class="popup-close" onclick="openPopup()">Reopen Feedback Form</button>
     </section>
     <footer>
         <p>&copy; 2025 Vacation-30A. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        let formWindow;
+    <!-- Popup Structure -->
+    <div id="popupOverlay" class="popup-overlay" onclick="closePopup(event)">
+        <div class="popup">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdKELiSHNu1MGxzGKqZYZfZzZAV7jjXTAwcBQz0T27F_se8eQ/viewform?embedded=true" 
+                title="Feedback Form">
+            </iframe>
+            <button class="popup-close" onclick="closePopup()">Close</button>
+        </div>
+    </div>
 
-        function toggleFormPopup() {
-            // Ensure the function opens or reopens the popup window
-            if (formWindow && !formWindow.closed) {
-                formWindow.focus(); // Bring the existing window into focus
-            } else {
-                formWindow = window.open(
-                    "https://docs.google.com/forms/d/e/1FAIpQLSdKELiSHNu1MGxzGKqZYZfZzZAV7jjXTAwcBQz0T27F_se8eQ/viewform",
-                    "FormPopup",
-                    "width=800,height=600,resizable=yes"
-                );
+    <!-- Scripts -->
+    <script>
+        function openPopup() {
+            const popupOverlay = document.getElementById("popupOverlay");
+            popupOverlay.style.display = "flex";
+        }
+
+        function closePopup(event) {
+            // Close only if clicking outside the popup or pressing the close button
+            const popupOverlay = document.getElementById("popupOverlay");
+            if (event?.target?.id === "popupOverlay" || event === undefined) {
+                popupOverlay.style.display = "none";
             }
         }
+
+        // Show popup automatically after a delay
+        window.onload = function() {
+            setTimeout(openPopup, 3000); // Delay of 3 seconds
+        };
     </script>
 </body>
 </html>
